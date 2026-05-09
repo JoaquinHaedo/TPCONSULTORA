@@ -1,0 +1,142 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#6ee7b7;
+  --accent-2:#60a5fa;
+  --glass: rgba(255,255,255,0.04);
+  --radius:12px;
+  --maxw:1100px;
+  --gap:18px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(96,165,250,0.06), transparent 8%),
+    radial-gradient(900px 500px at 90% 90%, rgba(110,231,183,0.04), transparent 8%),
+    var(--bg);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding:32px 20px;
+  display:flex;
+  justify-content:center;
+}
+.container{width:100%;max-width:var(--maxw)}
+
+/* NAV */
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}
+.brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
+.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-weight:700;color:#04263b;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+nav{display:flex;gap:12px;align-items:center}
+nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;transition:all .18s ease}
+nav a:hover,nav a:focus{color:#fff;background:var(--glass);outline:none}
+.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04263b;padding:8px 14px;border-radius:10px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(6,12,30,0.45)}
+
+/* Layout */
+.hero{display:grid;grid-template-columns:1fr 420px;gap:var(--gap);align-items:center;margin-bottom:28px}
+.hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+.kicker{color:var(--accent);font-weight:700;letter-spacing:0.6px;font-size:13px}
+h1{margin:10px 0 8px;font-size:28px}
+p.lead{color:var(--muted);margin:0 0 18px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;color:#04263b;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 8px 20px rgba(6,12,30,0.35)}
+.btn.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+.stats{display:flex;gap:12px;margin-top:18px}
+.stat{background:rgba(255,255,255,0.02);padding:10px 12px;border-radius:10px;text-align:center;min-width:110px}
+.stat strong{display:block;font-size:18px;color:#fff}
+
+/* Cards & sections */
+.contact-card,.member,.service,form,.map,.testimonial{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+.contact-card{padding:18px}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.section-title h2{margin:0;font-size:18px}
+.grid{display:grid;gap:var(--gap)}
+.team-grid{grid-template-columns:repeat(3,1fr)}
+.member{display:flex;gap:12px;align-items:center;transition:transform .18s ease,box-shadow .18s ease}
+.member:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+.avatar{width:72px;height:72px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:20px;color:#04263b;background:linear-gradient(135deg,var(--accent-2),var(--accent));flex-shrink:0}
+.member h3{margin:0;font-size:16px}
+.member p{margin:4px 0 0;color:var(--muted);font-size:14px}
+.services-grid{grid-template-columns:repeat(3,1fr)}
+.service{padding:18px;transition:transform .18s ease,box-shadow .18s ease}
+.service:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+.testimonials{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
+.testimonial{min-width:260px;padding:14px}
+.contact-grid{grid-template-columns:1fr 360px}
+label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+input,textarea,select{width:100%;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;resize:vertical;margin-bottom:12px}
+input:focus,textarea:focus,select:focus{outline:2px solid rgba(96,165,250,0.12);border-color:rgba(96,165,250,0.18)}
+footer{margin-top:18px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--muted);font-size:13px}
+
+/* Responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  header{flex-direction:column;align-items:flex-start;gap:14px}
+  .team-grid{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:1fr}
+  nav{flex-wrap:wrap}
+  .hero-card{padding:18px}
+  .avatar{width:56px;height:56px;font-size:16px}
+}
+/* Footer fijo */
+:root {
+  --footer-height: 72px; /* ajustar si querés otro alto */
+}
+
+/* Asegurar espacio para el footer */
+body {
+  padding-bottom: var(--footer-height);
+}
+
+/* Footer que ocupa todo el ancho pero con contenido centrado */
+.site-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--footer-height);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-top: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 -6px 20px rgba(2,6,23,0.5);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+}
+
+/* Reusar .container para centrar el contenido dentro del footer */
+.site-footer .container {
+  max-width: var(--maxw);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0; /* evitar padding extra */
+}
+
+/* Estilos internos del footer (puedes mantener tu markup actual) */
+.site-footer .left,
+.site-footer .right {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Ajustes móviles */
+@media (max-width:560px){
+  :root { --footer-height: 88px; } /* más alto en móvil si el contenido ocupa 2 líneas */
+  .site-footer .container { flex-direction: column; align-items: flex-start; gap:6px; }
+  body { padding-bottom: var(--footer-height); }
+}

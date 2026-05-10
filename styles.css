@@ -14,6 +14,9 @@
   --btn-color: #ffb86b; /* naranja pastel liso */
   --btn-text:  #04263b; /* texto oscuro para contraste */
 
+  /* Fondo sólido del footer (sin transparencia) */
+  --footer-bg: #071022;
+
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color-scheme: dark;
 }
@@ -169,7 +172,7 @@ footer{margin-top:18px;display:flex;justify-content:space-between;align-items:ce
   right: 0;
   bottom: 0;
   height: var(--footer-height);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  background: var(--footer-bg); /* fondo sólido sin transparencia */
   border-top: 1px solid rgba(255,255,255,0.03);
   box-shadow: 0 -6px 20px rgba(2,6,23,0.5);
   z-index: 60;
@@ -262,4 +265,3 @@ input[disabled] {
   outline-offset: 3px;
   background: var(--btn-color, #ffb86b);
 }
-

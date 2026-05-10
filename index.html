@@ -42,14 +42,57 @@
           <div class="stat"><strong>95%</strong><span style="color:var(--muted);font-size:13px">satisfacción</span></div>
         </div>
       </div>
+    </section>
 
-      <aside class="contact-card" aria-labelledby="contacto-rapido">
-        <h3 id="contacto-rapido">Contacto rápido</h3>
-        <div style="margin:8px 0;color:var(--muted)"><strong>Email</strong><div>hola@consultoraaurea.com</div></div>
-        <div style="margin:8px 0;color:var(--muted)"><strong>Tel</strong><div>+54 11 5555 1234</div></div>
-        <div style="margin:8px 0;color:var(--muted)"><strong>Ubicación</strong><div>Buenos Aires, Argentina</div></div>
-        <div style="margin-top:12px;color:var(--muted);font-size:13px">¿Listo para una reunión? <a href="contacto.html" style="color:var(--accent);text-decoration:none">Agendá una llamada</a></div>
-      </aside>
+    <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:18px 0">
+
+    <section aria-labelledby="titulo-casos" style="margin-bottom:18px">
+      <div class="section-title">
+        <h2 id="titulo-casos">Casos de éxito</h2>
+        <div style="color:var(--muted);font-size:13px">Resultados concretos que hablan por sí mismos</div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);gap:18px">
+        <article class="contact-card" aria-labelledby="caso-1">
+          <h3 id="caso-1">Reducción de costos operativos</h3>
+          <p style="color:var(--muted);margin-top:8px">Implementamos mejoras en la cadena de suministro que redujeron costos en 18% y mejoraron la entrega a tiempo.</p>
+        </article>
+
+        <article class="contact-card" aria-labelledby="caso-2">
+          <h3 id="caso-2">Escalamiento de producto</h3>
+          <p style="color:var(--muted);margin-top:8px">Acompañamos a una startup en la definición de métricas y procesos que permitieron triplicar usuarios activos en 9 meses.</p>
+        </article>
+
+        <article class="contact-card" aria-labelledby="caso-3">
+          <h3 id="caso-3">Transformación organizacional</h3>
+          <p style="color:var(--muted);margin-top:8px">Diseñamos una estructura por capacidades que mejoró la colaboración entre áreas y aceleró la toma de decisiones.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="titulo-recursos" style="margin-bottom:28px">
+      <div class="section-title">
+        <h2 id="titulo-recursos">Recursos y novedades</h2>
+        <div style="color:var(--muted);font-size:13px">Artículos breves, guías y eventos</div>
+      </div>
+
+      <div class="grid" style="grid-template-columns:2fr 1fr;gap:18px">
+        <div class="contact-card">
+          <h3>Artículo destacado: Cómo priorizar iniciativas digitales</h3>
+          <p style="color:var(--muted);margin-top:8px">Una guía práctica para seleccionar proyectos con mayor impacto y menor riesgo, con checklist para la evaluación rápida.</p>
+          <button class="btn" type="button" disabled style="margin-top:12px;display:inline-block">Leer artículo</button>
+        </div>
+
+        <aside class="contact-card" aria-labelledby="newsletter">
+          <h3 id="newsletter">Suscribite al newsletter</h3>
+          <p style="color:var(--muted);margin-top:8px">Recibí insights mensuales y casos prácticos en tu correo.</p>
+          <form style="margin-top:12px" aria-label="Formulario de suscripción" onsubmit="return false;">
+            <label for="email-news" class="text-muted">Email</label>
+            <input id="email-news" type="email" name="email" placeholder="tu@correo.com" disabled>
+            <button class="btn" type="button" disabled>Suscribirme</button>
+          </form>
+        </aside>
+      </div>
     </section>
 
     <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:18px 0">
@@ -76,13 +119,15 @@
       </div>
     </section>
 
-    <footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <div class="left">© <strong>Visiona Consultora</strong> <span style="color:var(--muted)">2026</span></div>
-    <div class="right" style="color:var(--muted)">Diseño accesible · Hecho con HTML y CSS</div>
-  </div>
-</footer>
+    <!-- Sección vacía adicional: doble altura del pie de página -->
+    <div class="spacer" aria-hidden="true" style="height: calc(var(--footer-height) * 2);"></div>
 
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="left">© <strong>Visiona Consultora</strong> <span style="color:var(--muted)">2026</span></div>
+        <div class="right" style="color:var(--muted)">Diseño accesible · Hecho con HTML y CSS</div>
+      </div>
+    </footer>
   </div>
 </body>
 </html>

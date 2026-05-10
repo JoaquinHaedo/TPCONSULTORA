@@ -8,6 +8,12 @@
   --radius:12px;
   --maxw:1100px;
   --gap:18px;
+  --footer-height: 72px;
+
+  /* Botones naranja pastel liso */
+  --btn-color: #ffb86b; /* naranja pastel liso */
+  --btn-text:  #04263b; /* texto oscuro para contraste */
+
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color-scheme: dark;
 }
@@ -26,6 +32,7 @@ body{
   padding:32px 20px;
   display:flex;
   justify-content:center;
+  padding-bottom: var(--footer-height);
 }
 .container{width:100%;max-width:var(--maxw)}
 
@@ -35,8 +42,76 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;ma
 .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-weight:700;color:#04263b;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
 nav{display:flex;gap:12px;align-items:center}
 nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;transition:all .18s ease}
-nav a:hover,nav a:focus{color:#fff;background:var(--glass);outline:none}
-.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04263b;padding:8px 14px;border-radius:10px;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(6,12,30,0.45)}
+nav a:hover,nav a:focus{outline:none; /* sin cambios de color en hover */ }
+
+/* CTA y botones (global) - color liso, sin degradados */
+.btn,
+.cta,
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.button {
+  background: var(--btn-color);
+  color: var(--btn-text);
+  padding:10px 14px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 8px 20px rgba(6,12,30,0.18);
+  border: 1px solid rgba(255,255,255,0.03);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* Mantener la clase .btn original para compatibilidad */
+.btn{padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+/* Botones secundarios (sin cambio de color en hover) */
+.btn.secondary {
+  background: transparent;
+  color: var(--btn-color);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.btn.secondary:hover,
+.btn.secondary:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(6,12,30,0.28);
+  outline: none;
+}
+
+/* No cambiar color en hover para enlaces de navegación */
+nav a:hover,
+nav a:focus {
+  transform: none;
+  box-shadow: none;
+  color: var(--muted);
+  background: transparent;
+}
+
+/* Hover / focus para botones principales: mantener animación popup (elevación) pero sin cambio de color */
+.btn:hover,
+.btn:focus,
+.cta:hover,
+.cta:focus,
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+  transform: translateY(-3px); /* animación tipo popup */
+  box-shadow: 0 14px 36px rgba(6,12,30,0.28);
+  outline: none;
+}
+
+/* Logo/Avatar que se comportan como botón: color liso */
+.avatar {
+  width:72px;height:72px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:20px;color:var(--btn-text);
+  background: var(--btn-color);
+  flex-shrink:0;
+}
 
 /* Layout */
 .hero{display:grid;grid-template-columns:1fr 420px;gap:var(--gap);align-items:center;margin-bottom:28px}
@@ -45,8 +120,6 @@ nav a:hover,nav a:focus{color:#fff;background:var(--glass);outline:none}
 h1{margin:10px 0 8px;font-size:28px}
 p.lead{color:var(--muted);margin:0 0 18px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700;color:#04263b;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 8px 20px rgba(6,12,30,0.35)}
-.btn.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
 .stats{display:flex;gap:12px;margin-top:18px}
 .stat{background:rgba(255,255,255,0.02);padding:10px 12px;border-radius:10px;text-align:center;min-width:110px}
 .stat strong{display:block;font-size:18px;color:#fff}
@@ -60,7 +133,6 @@ p.lead{color:var(--muted);margin:0 0 18px}
 .team-grid{grid-template-columns:repeat(3,1fr)}
 .member{display:flex;gap:12px;align-items:center;transition:transform .18s ease,box-shadow .18s ease}
 .member:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
-.avatar{width:72px;height:72px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:20px;color:#04263b;background:linear-gradient(135deg,var(--accent-2),var(--accent));flex-shrink:0}
 .member h3{margin:0;font-size:16px}
 .member p{margin:4px 0 0;color:var(--muted);font-size:14px}
 .services-grid{grid-template-columns:repeat(3,1fr)}
@@ -89,17 +161,8 @@ footer{margin-top:18px;display:flex;justify-content:space-between;align-items:ce
   .hero-card{padding:18px}
   .avatar{width:56px;height:56px;font-size:16px}
 }
+
 /* Footer fijo */
-:root {
-  --footer-height: 72px; /* ajustar si querés otro alto */
-}
-
-/* Asegurar espacio para el footer */
-body {
-  padding-bottom: var(--footer-height);
-}
-
-/* Footer que ocupa todo el ancho pero con contenido centrado */
 .site-footer {
   position: fixed;
   left: 0;
@@ -124,10 +187,10 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 0; /* evitar padding extra */
+  padding: 0;
 }
 
-/* Estilos internos del footer (puedes mantener tu markup actual) */
+/* Estilos internos del footer */
 .site-footer .left,
 .site-footer .right {
   color: var(--muted);
@@ -136,7 +199,67 @@ body {
 
 /* Ajustes móviles */
 @media (max-width:560px){
-  :root { --footer-height: 88px; } /* más alto en móvil si el contenido ocupa 2 líneas */
+  :root { --footer-height: 88px; }
   .site-footer .container { flex-direction: column; align-items: flex-start; gap:6px; }
   body { padding-bottom: var(--footer-height); }
 }
+
+
+.text-muted { color: var(--muted); }
+.rounded { border-radius: var(--radius); }
+.shadow-soft { box-shadow: 0 8px 24px rgba(2,6,23,0.45); }
+
+
+button[disabled],
+input[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Logo único dentro del enlace .brand: fondo liso naranja pastel, sin degradados ni cambios en hover */
+.brand .logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--btn-color, #ffb86b); /* naranja pastel liso (fallback incluido) */
+  color: var(--btn-text, #04263b);       /* texto oscuro para contraste */
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: none; /* sin transiciones de color */
+}
+
+/* Si la .logo contiene una imagen <img>, mantener la imagen y quitar el fondo de la caja */
+.brand .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  background: transparent;
+}
+
+/* Evitar cualquier cambio visual en hover/active */
+.brand .logo:hover,
+.brand .logo:active {
+  background: var(--btn-color, #ffb86b);
+  color: var(--btn-text, #04263b);
+  transform: none;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+}
+
+/* Foco accesible sin alterar el color de fondo */
+.brand .logo:focus-visible {
+  outline: 3px solid rgba(4,38,59,0.12);
+  outline-offset: 3px;
+  background: var(--btn-color, #ffb86b);
+}
+
